@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUMDes Bahtera Nusantara - Desa Karang Bahagia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Headers) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            800: '#064E3B',
+                            900: '#022C22',
+                        },
+                        gold: {
+                            100: '#FEF9C3',
+                            500: '#D4AF37',
+                            600: '#B89028',
+                        },
+                        neutral: {
+                            50: '#FBFBFA',
+                            100: '#F5F5F3',
+                            900: '#1C1C1A',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(to bottom, rgba(2, 44, 34, 0.4) 0%, rgba(2, 44, 34, 0.85) 100%);
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 font-sans leading-relaxed">
+
+    <!-- HEADER / NAVIGASI -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-50/90 backdrop-blur-md border-b border-neutral-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo / Brand -->
+            <a href="#beranda" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-white font-bold text-lg tracking-wider">
+                    BN
+                </div>
+                <div>
+                    <h1 class="font-serif font-bold text-lg text-emerald-800 leading-none">BUMDes</h1>
+                    <span class="text-[10px] text-neutral-500 tracking-wider uppercase font-semibold block mt-0.5">Bahtera Nusantara</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-600">
+                <a href="#profil" class="hover:text-emerald-800 transition-colors">Profil</a>
+                <a href="#unit-usaha" class="hover:text-emerald-800 transition-colors">Unit Usaha</a>
+                <a href="#transparansi" class="hover:text-emerald-800 transition-colors">Transparansi</a>
+                <a href="#kegiatan" class="hover:text-emerald-800 transition-colors">Kegiatan</a>
+                <a href="#kontak" class="bg-emerald-800 text-white px-5 py-2.5 rounded-full hover:bg-emerald-900 transition-colors font-medium">Hubungi Kami</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-neutral-600 focus:outline-none" aria-label="Buka Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-50 border-b border-neutral-100 px-6 py-4 space-y-4">
+            <a href="#profil" class="block text-neutral-600 hover:text-emerald-800 font-medium" onclick="toggleMenu()">Profil</a>
+            <a href="#unit-usaha" class="block text-neutral-600 hover:text-emerald-800 font-medium" onclick="toggleMenu()">Unit Usaha</a>
+            <a href="#transparansi" class="block text-neutral-600 hover:text-emerald-800 font-medium" onclick="toggleMenu()">Transparansi</a>
+            <a href="#kegiatan" class="block text-neutral-600 hover:text-emerald-800 font-medium" onclick="toggleMenu()">Kegiatan</a>
+            <a href="#kontak" class="block text-center bg-emerald-800 text-white py-3 rounded-xl font-medium" onclick="toggleMenu()">Hubungi Kami</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-emerald-900">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <!-- Elegant Soft Geometric Shape -->
+        <div class="absolute right-0 bottom-0 w-96 h-96 bg-gold-500 rounded-full blur-3xl opacity-20 transform translate-x-1/3 translate-y-1/3"></div>
+
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Hero Content -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-emerald-800/60 border border-emerald-700/50 text-gold-500 px-4 py-1.5 rounded-full text-xs tracking-wider uppercase font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+                    <span>Pilar Ekonomi Desa Karang Bahagia</span>
+                </div>
+                <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-tight">
+                    Mengakar Kuat,<br>
+                    <span class="text-gold-500">Mensejahterakan</span> Desa
+                </h2>
+                <p class="text-neutral-300 text-lg max-w-xl mx-auto lg:mx-0">
+                    Badan Usaha Milik Desa (BUMDes) <strong>Bahtera Nusantara</strong> hadir sebagai motor penggerak ekonomi warga Desa Karang Bahagia melalui inovasi berkelanjutan, pengelolaan potensi lokal yang profesional, dan asas transparansi.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
+                    <a href="#unit-usaha" class="w-full sm:w-auto text-center px-8 py-4 rounded-full bg-gold-500 text-emerald-900 hover:bg-gold-600 transition-all font-semibold shadow-lg shadow-gold-500/10">
+                        Jelajahi Unit Usaha
+                    </a>
+                    <a href="#profil" class="w-full sm:w-auto text-center px-8 py-4 rounded-full border border-neutral-400 text-white hover:bg-white/10 transition-colors font-medium">
+                        Pelajari Visi Kami
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image / Visual Representation -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Elegant Frame -->
+                    <div class="absolute -inset-4 rounded-2xl border border-white/10"></div>
+                    <div class="relative bg-gradient-to-tr from-emerald-800 to-emerald-950 p-8 rounded-2xl border border-white/20 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <span class="text-xs tracking-widest text-neutral-400 uppercase">Ringkasan Kinerja</span>
+                            <span class="text-xs bg-gold-500/20 text-gold-500 px-2 py-1 rounded">2026 Aktif</span>
+                        </div>
+                        
+                        <!-- Quick Metrics -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-emerald-900/50 rounded-xl border border-emerald-800/50">
+                                <p class="text-xs text-neutral-400">Total Unit Usaha</p>
+                                <p class="text-2xl font-serif font-bold text-white mt-1">4 Unit</p>
+                            </div>
+                            <div class="p-4 bg-emerald-900/50 rounded-xl border border-emerald-800/50">
+                                <p class="text-xs text-neutral-400">Pemberdayaan</p>
+                                <p class="text-2xl font-serif font-bold text-white mt-1">80+ UMKM</p>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar Visual -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-neutral-400">Kontribusi PADes Tahun Ini</span>
+                                <span class="text-gold-500 font-bold">100% Target</span>
+                            </div>
+                            <div class="w-full bg-emerald-950 rounded-full h-2 overflow-hidden">
+                                <div class="bg-gradient-to-r from-gold-500 to-emerald-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Quote -->
+                        <div class="text-xs italic text-neutral-300 border-l-2 border-gold-500 pl-3">
+                            "Membangun ekonomi desa secara kolektif dengan mengedepankan kearifan lokal bersama Bahtera Nusantara."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFIL & VISI MISI -->
+    <section id="profil" class="py-24 bg-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Left Column: Vision & Philosophy -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-emerald-800">Tentang Kami</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-neutral-900 font-bold leading-tight">
+                        Membangun Kemandirian Ekonomi Berkelanjutan
+                    </h3>
+                    <p class="text-neutral-600">
+                        BUMDes <strong>Bahtera Nusantara</strong> dibentuk sebagai wadah konsolidasi kegiatan ekonomi masyarakat Desa Karang Bahagia. Kami berkomitmen untuk merawat dan mendayagunakan potensi desa agar tidak hanya menjadi penonton dalam persaingan ekonomi modern.
+                    </p>
+                    <p class="text-neutral-600">
+                        Melalui struktur manajemen yang profesional, kami mengelola aset-aset desa secara akuntabel demi mendongkrak kesejahteraan sosial bersama secara inklusif.
+                    </p>
+                </div>
+
+                <!-- Right Column: Visi & Misi Cards -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Visi Card -->
+                    <div class="bg-neutral-50 p-8 rounded-2xl border border-neutral-200/60 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-800"></div>
+                        <h4 class="font-serif text-xl font-bold text-emerald-800 mb-3">Visi Bahtera Nusantara</h4>
+                        <p class="text-neutral-700 italic">
+                            "Menjadi pilar utama perekonomian Desa Karang Bahagia yang mandiri, berdaya saing tinggi, inovatif, dan mampu menyejahterakan seluruh lapisan masyarakat berdasarkan asas kekeluargaan, kemitraan, dan transparansi."
+                        </p>
+                    </div>
+
+                    <!-- Misi Card -->
+                    <div class="bg-neutral-50 p-8 rounded-2xl border border-neutral-200/60 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-gold-500"></div>
+                        <h4 class="font-serif text-xl font-bold text-emerald-800 mb-4">Misi Strategis</h4>
+                        <ul class="space-y-4 text-neutral-600 text-sm">
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+                                <span>Mengoptimalkan aset desa dan sumber daya alam Karang Bahagia melalui pemanfaatan teknologi tepat guna.</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+                                <span>Membina, melatih, dan memperluas jaringan pemasaran produk-produk unggulan buatan UMKM lokal.</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+                                <span>Menciptakan tata kelola keuangan yang sehat, adil, transparan, serta berorientasi penuh pada kemakmuran bersama warga desa.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIT USAHA (CORE BUSINESS UNITS) -->
+    <section id="unit-usaha" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-emerald-800">Portofolio Bisnis</span>
+                <h3 class="font-serif text-3xl sm:text-4xl text-neutral-900 font-bold">
+                    Unit Usaha Bahtera Nusantara
+                </h3>
+                <p class="text-neutral-500 text-sm sm:text-base">
+                    Operasional bisnis dikelola secara profesional dalam empat pilar unit usaha guna memberikan layanan andal serta dampak ekonomi langsung.
+                </p>
+            </div>
+
+            <!-- Business Units Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Unit 1: Agribisnis & Saprotan -->
+                <div class="bg-neutral-50 rounded-2xl border border-neutral-200/80 p-8 shadow-sm hover:shadow-xl hover:border-emerald-800/20 transition-all group flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                            <!-- SVG Pertanian -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-serif text-xl font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Unit Pertanian & Penyedia Sarana (Saprotan)</h4>
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Menjamin ketersediaan pupuk berkualitas tinggi, benih unggul bersertifikat, dan penyewaan alat mesin pertanian modern untuk mengoptimalkan hasil panen petani lokal.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-t border-neutral-100 pt-6 mt-6 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded">Pertanian & Pangan</span>
+                        <span class="text-xs text-neutral-400">Aktif & Produktif</span>
+                    </div>
+                </div>
+
+                <!-- Unit 2: Pengelolaan Lingkungan -->
+                <div class="bg-neutral-50 rounded-2xl border border-neutral-200/80 p-8 shadow-sm hover:shadow-xl hover:border-emerald-800/20 transition-all group flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                            <!-- SVG Lingkungan -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-serif text-xl font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Unit Pengolahan Sampah & Sanitasi</h4>
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Layanan pengelolaan kebersihan lingkungan pemukiman terintegrasi, pemilahan sampah cerdas, serta produksi pupuk organik kompos dari sisa rumah tangga warga.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-t border-neutral-100 pt-6 mt-6 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded">Layanan Sanitasi</span>
+                        <span class="text-xs text-neutral-400">Pemberdayaan Lingkungan</span>
+                    </div>
+                </div>
+
+                <!-- Unit 3: Mikro-Keuangan & Simpan Pinjam -->
+                <div class="bg-neutral-50 rounded-2xl border border-neutral-200/80 p-8 shadow-sm hover:shadow-xl hover:border-emerald-800/20 transition-all group flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                            <!-- SVG Finansial -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-serif text-xl font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Unit Keuangan Mikro & Simpan Pinjam</h4>
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Membantu permodalan usaha kecil tanpa persyaratan rumit dengan skema bagi hasil yang adil guna merangsang pertumbuhan wirausaha lokal yang sehat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-t border-neutral-100 pt-6 mt-6 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded">Layanan Finansial</span>
+                        <span class="text-xs text-neutral-400">Permodalan Adil</span>
+                    </div>
+                </div>
+
+                <!-- Unit 4: Edu-Wisata & Kuliner -->
+                <div class="bg-neutral-50 rounded-2xl border border-neutral-200/80 p-8 shadow-sm hover:shadow-xl hover:border-emerald-800/20 transition-all group flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                            <!-- SVG Komunitas -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-serif text-xl font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Unit Destinasi Wisata & Sentra Kuliner</h4>
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Pengembangan spot rekreasi edukatif berbasis alam persawahan Karang Bahagia serta pujasera terpadu bagi para pelaku kuliner khas desa.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-t border-neutral-100 pt-6 mt-6 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded">Kemitraan & Wisata</span>
+                        <span class="text-xs text-neutral-400">Pengembangan Wisata</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSPARANSI & SIMULATOR ALOKASI LABA -->
+    <section id="transparansi" class="py-24 bg-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Left: Transparency Explanations -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-emerald-800">Transparansi Laba</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-neutral-900 font-bold leading-tight">
+                        Komitmen Keterbukaan & Distribusi Hasil Laba
+                    </h3>
+                    <p class="text-neutral-600">
+                        Setiap rupiah laba bersih yang dihasilkan oleh BUMDes <strong>Bahtera Nusantara</strong> didistribusikan secara adil berdasarkan keputusan Musyawarah Desa (Musdes).
+                    </p>
+                    <p class="text-neutral-600">
+                        Kontribusi terbesar diarahkan langsung untuk **Pendapatan Asli Desa (PADes)** guna membangun infrastruktur fasilitas umum dan meningkatkan pelayanan dasar warga.
+                    </p>
+                    
+                    <!-- Stats Badges -->
+                    <div class="pt-4 grid grid-cols-3 gap-4 border-t border-neutral-200">
+                        <div>
+                            <span class="text-2xl font-serif font-bold text-emerald-800 block">40%</span>
+                            <span class="text-xs text-neutral-500">Porsi PADes</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-serif font-bold text-emerald-800 block">30%</span>
+                            <span class="text-xs text-neutral-500">Cadangan Modal</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-serif font-bold text-emerald-800 block">15%</span>
+                            <span class="text-xs text-neutral-500">Bantuan Sosial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Profit Distribution Simulator -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-neutral-200 shadow-xl space-y-6">
+                    <div>
+                        <h4 class="font-serif text-xl font-bold text-emerald-800">Simulator Alokasi Hasil Bersih BUMDes</h4>
+                        <p class="text-xs text-neutral-400 mt-1">Masukkan perkiraan laba bersih tahunan untuk melihat simulasi distribusi alokasi dana secara terbuka.</p>
+                    </div>
+
+                    <!-- Input Box -->
+                    <div class="space-y-2">
+                        <label for="profit-input" class="text-xs font-semibold text-neutral-700 uppercase tracking-wider block">Estimasi Laba Bersih Tahunan (IDR)</label>
+                        <div class="relative rounded-xl shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <span class="text-neutral-500 sm:text-sm font-semibold">Rp</span>
+                            </div>
+                            <input type="number" id="profit-input" value="150000000" class="block w-full pl-12 pr-4 py-3.5 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all font-semibold text-emerald-900 text-lg" placeholder="0">
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Output Breakdown List -->
+                    <div class="space-y-4 pt-4 border-t border-neutral-100">
+                        <!-- 1. PADes (40%) -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-neutral-700">Setoran Pendapatan Asli Desa (PADes) — 40%</span>
+                                <span id="val-pades" class="font-bold text-emerald-800">Rp 60.000.000</span>
+                            </div>
+                            <div class="w-full bg-neutral-100 rounded-full h-2">
+                                <div class="bg-emerald-800 h-2 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Cadangan Modal (30%) -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-neutral-700">Cadangan Pengembangan Usaha — 30%</span>
+                                <span id="val-cadangan" class="font-bold text-emerald-800">Rp 45.000.000</span>
+                            </div>
+                            <div class="w-full bg-neutral-100 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Dana Sosial & Pendidikan (15%) -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-neutral-700">Dana Sosial & Beasiswa Komunitas — 15%</span>
+                                <span id="val-sosial" class="font-bold text-emerald-800">Rp 22.500.000</span>
+                            </div>
+                            <div class="w-full bg-neutral-100 rounded-full h-2">
+                                <div class="bg-neutral-400 h-2 rounded-full" style="width: 15%"></div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Pengurus & Pengawas (10%) -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-neutral-700">Insentif Pengurus & Dewan Pengawas — 10%</span>
+                                <span id="val-insentif" class="font-bold text-emerald-800">Rp 15.000.000</span>
+                            </div>
+                            <div class="w-full bg-neutral-100 rounded-full h-2">
+                                <div class="bg-neutral-300 h-2 rounded-full" style="width: 10%"></div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Kesejahteraan Pegawai (5%) -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-neutral-700">Bonus Kinerja Pegawai Operasional — 5%</span>
+                                <span id="val-bonus" class="font-bold text-emerald-800">Rp 7.500.000</span>
+                            </div>
+                            <div class="w-full bg-neutral-100 rounded-full h-2">
+                                <div class="bg-neutral-200 h-2 rounded-full" style="width: 5%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Note -->
+                    <div class="p-3 bg-neutral-50 rounded-lg text-xs text-neutral-500 border border-neutral-200/50">
+                        * Skema pembagian hasil di atas mengacu pada Peraturan Desa Karang Bahagia Nomor 3 Tahun 2024 tentang Anggaran Dasar BUMDes Bahtera Nusantara.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEGIATAN & BERITA TERBARU -->
+    <section id="kegiatan" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-emerald-800">Kabar Desa</span>
+                <h3 class="font-serif text-3xl sm:text-4xl text-neutral-900 font-bold">
+                    Agenda & Berita BUMDes
+                </h3>
+                <p class="text-neutral-500 text-sm">
+                    Ikuti perkembangan terbaru, program pemberdayaan sosial, penyaluran sarana tani, serta transparansi pengelolaan modal kami.
+                </p>
+            </div>
+
+            <!-- News Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-2xl border border-neutral-200 overflow-hidden group hover:shadow-lg transition-all flex flex-col justify-between">
+                    <div>
+                        <!-- CSS Image Placeholder -->
+                        <div class="h-48 bg-emerald-900/10 flex items-center justify-center p-6 border-b border-neutral-100 relative">
+                            <span class="text-neutral-400 font-serif text-xs italic">Dokumentasi Lapangan Bahtera Nusantara</span>
+                            <div class="absolute bottom-4 left-4 bg-emerald-800 text-white text-[10px] uppercase font-semibold tracking-wider px-2 py-1 rounded">Pertanian</div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-xs text-neutral-400">10 Mei 2026</span>
+                            <h4 class="font-serif text-lg font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Distribusi Pupuk Organik Bersubsidi Tahap Pertama</h4>
+                            <p class="text-sm text-neutral-500 line-clamp-3">
+                                Kelompok Tani binaan BUMDes Bahtera Nusantara menyalurkan 12 ton pupuk organik ramah lingkungan untuk optimalisasi kualitas padi organik musim ini.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('Distribusi Pupuk Organik Bersubsidi Tahap Pertama', 'Pada tanggal 10 Mei 2026, BUMDes Bahtera Nusantara secara resmi menyalurkan 12 ton pupuk organik bersubsidi kepada 5 kelompok tani binaan di Desa Karang Bahagia. Langkah ini bertujuan untuk mengembalikan unsur hara tanah sawah secara alami. Program ini didukung penuh oleh alokasi cadangan pengembangan modal tahun anggaran sebelumnya.')" class="text-xs font-semibold text-emerald-800 hover:text-emerald-900 inline-flex items-center space-x-1">
+                            <span>Baca Selengkapnya</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-2xl border border-neutral-200 overflow-hidden group hover:shadow-lg transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 bg-emerald-900/10 flex items-center justify-center p-6 border-b border-neutral-100 relative">
+                            <span class="text-neutral-400 font-serif text-xs italic">Dokumentasi Pelatihan UMKM</span>
+                            <div class="absolute bottom-4 left-4 bg-emerald-800 text-white text-[10px] uppercase font-semibold tracking-wider px-2 py-1 rounded">UMKM Naik Kelas</div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-xs text-neutral-400">22 April 2026</span>
+                            <h4 class="font-serif text-lg font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Pelatihan Literasi Keuangan & Digitalisasi Pasar</h4>
+                            <p class="text-sm text-neutral-500 line-clamp-3">
+                                Bersama mitra akademisi, BUMDes melatih puluhan pelaku usaha ultra-mikro mengadopsi pencatatan keuangan digital dan integrasi transaksi nontunai.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('Pelatihan Literasi Keuangan & Digitalisasi Pasar', 'Sebagai komitmen pemberdayaan masyarakat, BUMDes Bahtera Nusantara menyelenggarakan pelatihan komprehensif bagi 45 wirausaha mikro desa. Materi mencakup dasar pembukuan kas digital, penggunaan QRIS BUMDes, serta pemasaran kreatif lewat media sosial demi mendongkrak omzet penjualan.')" class="text-xs font-semibold text-emerald-800 hover:text-emerald-900 inline-flex items-center space-x-1">
+                            <span>Baca Selengkapnya</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-2xl border border-neutral-200 overflow-hidden group hover:shadow-lg transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 bg-emerald-900/10 flex items-center justify-center p-6 border-b border-neutral-100 relative">
+                            <span class="text-neutral-400 font-serif text-xs italic">Dokumentasi Laporan Tahunan</span>
+                            <div class="absolute bottom-4 left-4 bg-emerald-800 text-white text-[10px] uppercase font-semibold tracking-wider px-2 py-1 rounded">Transparansi</div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-xs text-neutral-400">15 Maret 2026</span>
+                            <h4 class="font-serif text-lg font-bold text-neutral-900 group-hover:text-emerald-800 transition-colors">Penyetoran PADes Tahun Buku 2025 Realisasi 100%</h4>
+                            <p class="text-sm text-neutral-500 line-clamp-3">
+                                Laporan pertanggungjawaban BUMDes diterima secara mutlak pada Musyawarah Desa. Kontribusi laba langsung disetorkan ke kas pemerintahan desa.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('Penyetoran PADes Tahun Buku 2025 Realisasi 100%', 'Dalam Musyawarah Desa (Musdes) akuntabilitas tahunan, dewan pengawas mengesahkan laporan realisasi keuangan BUMDes Bahtera Nusantara tahun buku 2025. Penyetoran kontribusi PADes terlaksana penuh guna mendukung pembiayaan program perbaikan infrastruktur jalan pemukiman warga Karang Bahagia.')" class="text-xs font-semibold text-emerald-800 hover:text-emerald-900 inline-flex items-center space-x-1">
+                            <span>Baca Selengkapnya</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULIR KONTAK & LOKASI -->
+    <section id="kontak" class="py-24 bg-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <!-- Left: Office info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-widest font-bold text-emerald-800">Hubungi Kami</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-neutral-900 font-bold leading-tight">
+                            Mari Jalin Sinergi Bersama Bahtera Nusantara
+                        </h3>
+                        <p class="text-neutral-600 text-sm sm:text-base">
+                            Pintu kolaborasi kami terbuka lebar bagi setiap warga desa yang ingin berdiskusi perihal inovasi usaha, kemitraan komersial, maupun program permodalan mikro.
+                        </p>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-1">
+                                <!-- Icon Pin -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-neutral-500 uppercase tracking-widest">Kantor Operasional</h5>
+                                <p class="text-neutral-800 font-medium text-sm mt-1">
+                                    Jl. Raya Karang Bahagia No. 12, Kecamatan Karang Bahagia, Kabupaten Bekasi, Jawa Barat
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-1">
+                                <!-- Icon Email -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-neutral-500 uppercase tracking-widest">Surat Elektronik</h5>
+                                <p class="text-emerald-800 font-medium text-sm mt-1">
+                                    bahteranusantara@karangbahagia.desa.id
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-1">
+                                <!-- Icon Phone -->
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1.3 1.3 0 01-.321.988l-1.305 1.305a1.1 1.1 0 00-.23.18 10.5 10.5 0 005.45 5.45 1.1 1.1 0 00.08-.23l1.305-1.305a1.3 1.3 0 01.98-.318l2.2.55a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-neutral-500 uppercase tracking-widest">Layanan Informasi Warga</h5>
+                                <p class="text-neutral-800 font-medium text-sm mt-1">
+                                    +62 812-3456-7890 (WhatsApp Hub)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Clean Contact Form -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-neutral-200 shadow-xl space-y-6">
+                    <h4 class="font-serif text-xl font-bold text-emerald-800 border-b border-neutral-100 pb-4">
+                        Kirim Pesan, Aspirasi atau Kemitraan
+                    </h4>
+                    
+                    <form id="contactForm" class="space-y-4" onsubmit="submitForm(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label for="name" class="text-xs font-semibold text-neutral-700 uppercase tracking-wider block">Nama Lengkap</label>
+                                <input type="text" id="name" required class="block w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all text-sm">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="phone" class="text-xs font-semibold text-neutral-700 uppercase tracking-wider block">No. Handphone</label>
+                                <input type="tel" id="phone" required class="block w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="category" class="text-xs font-semibold text-neutral-700 uppercase tracking-wider block">Jenis Keperluan</label>
+                            <select id="category" class="block w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all text-sm text-neutral-700 bg-white">
+                                <option value="Aspirasi / Ide Pengembangan Desa">Aspirasi / Ide Bisnis Desa</option>
+                                <option value="Pengajuan Kemitraan UMKM / Usaha">Pengajuan Kemitraan UMKM</option>
+                                <option value="Pertanyaan Layanan Operasional">Pertanyaan Umum</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="message" class="text-xs font-semibold text-neutral-700 uppercase tracking-wider block">Isi Pesan Anda</label>
+                            <textarea id="message" rows="4" required class="block w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800 transition-all text-sm" placeholder="Sampaikan saran, permohonan kemitraan, atau aspirasi Anda di sini..."></textarea>
+                        </div>
+
+                        <!-- Feedback Message Box (Hidden initially) -->
+                        <div id="feedback-box" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+                        <button type="submit" class="w-full bg-emerald-800 text-white font-semibold py-3.5 px-6 rounded-xl hover:bg-emerald-900 transition-colors shadow-lg shadow-emerald-800/10 text-sm">
+                            Kirim Aspirasi Sekarang
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-neutral-300 py-12 border-t border-emerald-900">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <!-- Brand / Slogan -->
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center text-emerald-950 font-bold text-lg">
+                        BN
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-white leading-none">BUMDes</h4>
+                        <span class="text-xs text-neutral-400 tracking-widest uppercase font-semibold">Bahtera Nusantara</span>
+                    </div>
+                </div>
+                <p class="text-xs text-neutral-400 max-w-sm leading-relaxed">
+                    Wadah penggerak dan pilar penopang perekonomian mandiri warga Desa Karang Bahagia demi mewujudkan kemakmuran, kemandirian pangan, dan pemberdayaan terpadu.
+                </p>
+            </div>
+
+            <!-- Fast Links -->
+            <div class="md:col-span-3 space-y-4">
+                <h5 class="text-xs font-bold text-white uppercase tracking-wider">Tautan Cepat</h5>
+                <ul class="space-y-2 text-xs text-neutral-400">
+                    <li><a href="#profil" class="hover:text-gold-500 transition-colors">Visi & Misi Kami</a></li>
+                    <li><a href="#unit-usaha" class="hover:text-gold-500 transition-colors">Pilar Bisnis Aktif</a></li>
+                    <li><a href="#transparansi" class="hover:text-gold-500 transition-colors">Simulator Alokasi PADes</a></li>
+                    <li><a href="#kegiatan" class="hover:text-gold-500 transition-colors">Kabar Berita Terkini</a></li>
+                </ul>
+            </div>
+
+            <!-- Legalities & Certifications -->
+            <div class="md:col-span-4 space-y-4 text-xs text-neutral-400 leading-relaxed">
+                <h5 class="text-xs font-bold text-white uppercase tracking-wider">Ketetapan Hukum</h5>
+                <p>
+                    Nomor Keputusan Hukum Kemenkumham RI:<br>
+                    <span class="text-white font-mono">No. AHU-001235.AH.01.33.Tahun 2024</span>
+                </p>
+                <p>
+                    Berdasarkan Perda Kabupaten Bekasi No. 7 Tahun 2023 tentang Pengelolaan dan Standardisasi BUMDes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Copyright Block -->
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-emerald-900 text-center text-xs text-neutral-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 BUMDes Bahtera Nusantara - Desa Karang Bahagia. Hak Cipta Dilindungi.</p>
+            <p class="text-neutral-600">Dikembangkan secara profesional dengan prinsip tata kelola yang baik.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE NEWS MODAL -->
+    <div id="news-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/60 backdrop-blur-sm hidden" onclick="closeModalOnOuterClick(event)">
+        <div class="bg-white rounded-2xl border border-neutral-200 shadow-2xl max-w-lg w-full p-8 space-y-6 relative" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <div class="space-y-2">
+                <span class="text-[10px] uppercase font-bold text-emerald-800 tracking-wider">Dokumentasi & Kabar Terkini</span>
+                <h4 id="modal-title" class="font-serif text-2xl font-bold text-neutral-900 leading-tight"></h4>
+            </div>
+            <p id="modal-body" class="text-sm text-neutral-600 leading-relaxed"></p>
+            <div class="border-t border-neutral-100 pt-4 flex justify-end">
+                <button onclick="closeModal()" class="bg-emerald-800 hover:bg-emerald-900 text-white font-medium text-xs px-5 py-2.5 rounded-lg transition-colors">
+                    Tutup Kabar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Mobile Menu Toggling
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            if (isHidden) {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        function toggleMenu() {
+            mobileMenu.classList.add('hidden');
+            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        }
+
+        // 2. Dynamic Profit Allocation Simulator
+        const profitInput = document.getElementById('profit-input');
+        const valPades = document.getElementById('val-pades');
+        const valCadangan = document.getElementById('val-cadangan');
+        const valSosial = document.getElementById('val-sosial');
+        const valInsentif = document.getElementById('val-insentif');
+        const valBonus = document.getElementById('val-bonus');
+
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                maximumFractionDigits: 0
+            }).format(number);
+        }
+
+        function calculateAllocation() {
+            let value = parseFloat(profitInput.value) || 0;
+            if (value < 0) value = 0;
+
+            valPades.textContent = formatRupiah(value * 0.40);
+            valCadangan.textContent = formatRupiah(value * 0.30);
+            valSosial.textContent = formatRupiah(value * 0.15);
+            valInsentif.textContent = formatRupiah(value * 0.10);
+            valBonus.textContent = formatRupiah(value * 0.05);
+        }
+
+        profitInput.addEventListener('input', calculateAllocation);
+        // Initial setup run
+        calculateAllocation();
+
+        // 3. Simple Modal Handlers for News Articles
+        const modal = document.getElementById('news-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+
+        function openModal(title, text) {
+            modalTitle.textContent = title;
+            modalBody.textContent = text;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // prevent scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // allow scrolling
+        }
+
+        function closeModalOnOuterClick(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // 4. Form Aspirasi Simulation
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const category = document.getElementById('category').value;
+
+            const feedbackBox = document.getElementById('feedback-box');
+            
+            feedbackBox.className = "p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200";
+            feedbackBox.innerHTML = `Terima kasih Bapak/Ibu <strong>${name}</strong>. Aspirasi dengan kategori <strong>${category}</strong> telah kami terima oleh sistem BUMDes Bahtera Nusantara dengan nomor tiket pelacakan: <strong>BN-${Math.floor(Math.random()*900000) + 100000}</strong>. Tim administrasi kami akan menindaklanjutinya segera.`;
+            feedbackBox.classList.remove('hidden');
+
+            // Reset form fields
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>
